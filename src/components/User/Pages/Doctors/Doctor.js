@@ -23,7 +23,7 @@ const Doctor = () => {
       if (storedname) {
         setUsername(storedname);
       }
-      const response = await fetch('http://localhost:8080/doctors/all');
+      const response = await fetch('https://caresphere-backend.onrender.com/doctors/all');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -36,7 +36,7 @@ const Doctor = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/userdetails/user?username=${username}`);
+      const response = await fetch(`https://caresphere-backend.onrender.com/userdetails/user?username=${username}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -118,7 +118,7 @@ const Doctor = () => {
         treatment: ''
       };
 
-      const patientResponse = await fetch('http://localhost:8080/doctor/create', {
+      const patientResponse = await fetch('https://caresphere-backend.onrender.com/doctor/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
