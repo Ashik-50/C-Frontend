@@ -92,7 +92,7 @@ const Doctor = () => {
     };
 
     try {
-      const appointmentResponse = await fetch('http://localhost:8080/appointments/create', {
+      const appointmentResponse = await fetch('https://caresphere-backend.onrender.com/appointments/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
