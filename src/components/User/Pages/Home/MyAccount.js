@@ -10,7 +10,7 @@ const MyAccount = () => {
 
     useEffect(() => {
         const username = localStorage.getItem('username'); // Get the username from localStorage
-        axios.get(`http://localhost:8080/userdetails/user?username=${username}`)
+        axios.get(`https://caresphere-backend.onrender.com/userdetails/user?username=${username}`)
             .then(response => {
                 setUserDetails(response.data[0]); // Assuming the API returns an array
                 setFormData(response.data[0]);
@@ -32,7 +32,7 @@ const MyAccount = () => {
     };
 
     const handleSave = () => {
-        axios.post('http://localhost:8080/userdetails', formData)
+        axios.post('https://caresphere-backend.onrender.com/userdetails', formData)
             .then(response => {
                 setUserDetails(response.data);
                 setIsEditing(false);
