@@ -11,7 +11,7 @@ const ConHis = () => {
     const fetchConsultations = async () => {
       try {
         const username = localStorage.getItem('username');
-        const response = await fetch(`http://localhost:8080/doctor/completed?doctor=${username}`);
+        const response = await fetch(`https://caresphere-backend.onrender.com/doctor/completed?doctor=${username}`);
         const data = await response.json();
         setConsultations(data);
       } catch (error) {
