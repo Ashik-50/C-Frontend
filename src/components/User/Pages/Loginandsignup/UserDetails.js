@@ -76,7 +76,7 @@ function UserDetails() {
     };
   
     try {
-      const response = await fetch('http://localhost:8080/userdetails', {
+      const response = await fetch('https://caresphere-backend.onrender.com/userdetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
