@@ -7,7 +7,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:8080/login');
+      const response = await fetch('https://caresphere-backend.onrender.com/login');
       if (!response.ok) {
         throw new Error('Failed to fetch users');
       }
@@ -20,7 +20,7 @@ const Users = () => {
 
   const deleteUser = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/login/${id}`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/login/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
