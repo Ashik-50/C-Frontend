@@ -31,7 +31,9 @@ const AddDoctor = () => {
   });
 
   const [imagePreview, setImagePreview] = useState('');
-  const [message, setMessage] = useState('');
+  const [doctorMessage, setDoctorMessage] = useState('');
+  const [userMessage, setUserMessage] = useState('');
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -59,49 +61,50 @@ const AddDoctor = () => {
     }
   };
 
-  const handleAddDoctor = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://caresphere-backend.onrender.com/doctors/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newDoctor),
-      });
+const handleAddDoctor = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('https://caresphere-backend.onrender.com/doctors/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newDoctor),
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to add doctor');
-      }
-
-      setMessage('Doctor added successfully.');
-    } catch (error) {
-      console.error('Error:', error);
-      setMessage('Error: ' + error.message);
+    if (!response.ok) {
+      throw new Error('Failed to add doctor');
     }
-  };
 
-  const handleCreateUser = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://caresphere-backend.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newUser),
-      });
+    setDoctorMessage('Doctor added successfully.');
+  } catch (error) {
+    console.error('Error:', error);
+    setDoctorMessage('Error: ' + error.message);
+  }
+};
 
-      if (!response.ok) {
-        throw new Error('Failed to create user');
-      }
+const handleCreateUser = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('https://caresphere-backend.onrender.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
 
-      setMessage('User created successfully.');
-    } catch (error) {
-      console.error('Error:', error);
-      setMessage('Error: ' + error.message);
+    if (!response.ok) {
+      throw new Error('Failed to create user');
     }
-  };
+
+    setUserMessage('User created successfully.');
+  } catch (error) {
+    console.error('Error:', error);
+    setUserMessage('Error: ' + error.message);
+  }
+};
+
 
   return (
     <div>
@@ -270,7 +273,8 @@ const AddDoctor = () => {
             </button>
           </div>
         </form>
-        {message && <p style={messageStyle}>{message}</p>}
+        {doctorMessage && <p style={messageStyle}>{doctorMessage}</p>}
+        {userMessage && <p style={messageStyle}>{userMessage}</p>}
       </div>
     </div>
     </div>
