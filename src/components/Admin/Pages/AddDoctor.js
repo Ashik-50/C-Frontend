@@ -62,7 +62,7 @@ const AddDoctor = () => {
   const handleAddDoctor = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/doctors/add', {
+      const response = await fetch('https://caresphere-backend.onrender.com/doctors/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const AddDoctor = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/login', {
+      const response = await fetch('https://caresphere-backend.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
