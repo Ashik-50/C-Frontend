@@ -9,7 +9,7 @@ const DoctorsPage = () => {
   // Fetch doctors from API
   const fetchDoctors = async () => {
     try {
-      const response = await fetch('http://localhost:8080/doctors/all');
+      const response = await fetch('https://caresphere-backend.onrender.com/doctors/all');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -43,7 +43,7 @@ const DoctorsPage = () => {
   // Handle doctor removal
   const handleRemoveDoctor = async (doctorId, index) => {
     try {
-      const response = await fetch(`http://localhost:8080/doctors/${doctorId}`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/doctors/${doctorId}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
