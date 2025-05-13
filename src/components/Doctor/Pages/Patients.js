@@ -28,7 +28,7 @@ const Patients = () => {
     const fetchPatients = async () => {
       try {
         const username = localStorage.getItem('username');
-        const response = await fetch(`http://localhost:8080/doctor/ongoing?doctor=${username}`);
+        const response = await fetch(`https://caresphere-backend.onrender.com/doctor/ongoing?doctor=${username}`);
         const data = await response.json();
         setPatients(data);
       } catch (error) {
@@ -70,7 +70,7 @@ const Patients = () => {
     const confirm = window.confirm('Are you sure you want to mark this patient as completed?');
     if (confirm) {
       try {
-        const response = await fetch(`http://localhost:8080/doctor/mark-completed/${id}`, {
+        const response = await fetch(`https://caresphere-backend.onrender.com/doctor/mark-completed/${id}`, {
           method: 'PUT',
         });
         if (response.ok) {
@@ -91,7 +91,7 @@ const Patients = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/doctor/edit-patient/${editPatient.id}`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/doctor/edit-patient/${editPatient.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ const Patients = () => {
   const handleReportSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/doctor/add-report`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/doctor/add-report`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
