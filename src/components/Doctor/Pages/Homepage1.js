@@ -12,11 +12,11 @@ const HomePage = () => {
   useEffect(() => {
     const doctorUsername = localStorage.getItem('username');
     
-    fetch(`http://localhost:8080/doctor/ongoing?doctor=${doctorUsername}`)
+    fetch(`https://caresphere-backend.onrender.com/doctor/ongoing?doctor=${doctorUsername}`)
       .then(response => response.json())
       .then(data => setOngoingPatients(data));
 
-    fetch(`http://localhost:8080/doctor/completed?doctor=${doctorUsername}`)
+    fetch(`https://caresphere-backend.onrender.com/doctor/completed?doctor=${doctorUsername}`)
       .then(response => response.json())
       .then(data => setCompletedPatients(data));
   }, []);
