@@ -18,7 +18,7 @@ const AppointmentsPage = () => {
         }
         const statuses = ["pending", "accepted"];
         const query = statuses.map(status => `statuses=${status}`).join("&");
-        const response = await fetch(`http://localhost:8080/appointments/user?username=${username}&${query}`);
+        const response = await fetch(`https://caresphere-backend.onrender.com/appointments/user?username=${username}&${query}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -46,7 +46,7 @@ const AppointmentsPage = () => {
     try {
       if (!appointmentToDelete) return;
       const { id } = appointmentToDelete;
-      const response = await fetch(`http://localhost:8080/appointments/${id}`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/appointments/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
