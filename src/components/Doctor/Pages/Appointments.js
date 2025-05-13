@@ -15,7 +15,7 @@ const Appointments = () => {
         }
 
         const fetchStatusAppointments = async (status) => {
-          const response = await fetch(`http://localhost:8080/appointments/doctor?doctorusername=${doctorusername}&status=${status}`);
+          const response = await fetch(`https://caresphere-backend.onrender.com/appointments/doctor?doctorusername=${doctorusername}&status=${status}`);
           if (!response.ok) {
             const errorDetails = await response.json();
             throw new Error(`Network response was not ok: ${errorDetails.message}`);
@@ -42,7 +42,7 @@ const Appointments = () => {
 
   const markAsAccepted = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/appointments/${id}/accepted`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/appointments/${id}/accepted`, {
         method: 'PATCH',
       });
 
@@ -60,7 +60,7 @@ const Appointments = () => {
 
   const deleteAppointment = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/appointments/${id}`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/appointments/${id}`, {
         method: 'DELETE',
       });
 
@@ -76,7 +76,7 @@ const Appointments = () => {
 
   const markAsCompleted = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/appointments/${id}/completed`, {
+      const response = await fetch(`https://caresphere-backend.onrender.com/appointments/${id}/completed`, {
         method: 'PATCH',
       });
 
