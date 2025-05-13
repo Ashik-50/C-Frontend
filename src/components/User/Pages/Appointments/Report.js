@@ -11,7 +11,7 @@ const Reports = () => {
     const fetchReports = async () => {
       try {
         const username = localStorage.getItem('username');
-        const response = await axios.get(`http://localhost:8080/doctor/reports/${username}`);
+        const response = await axios.get(`https://caresphere-backend.onrender.com/doctor/reports/${username}`);
         setReports(response.data);
       } catch (error) {
         console.error('Error fetching reports:', error);
