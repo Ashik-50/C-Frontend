@@ -16,9 +16,9 @@ const HomePage = () => {
     const fetchCounts = async () => {
       try {
         const [doctorsResponse, usersResponse, appointmentsResponse] = await Promise.all([
-          axios.get('http://localhost:8080/doctors/count'),
-          axios.get('http://localhost:8080/login/count'),
-          axios.get('http://localhost:8080/appointments/count'),
+          axios.get('https://caresphere-backend.onrender.com/doctors/count'),
+          axios.get('https://caresphere-backend.onrender.com/login/count'),
+          axios.get('https://caresphere-backend.onrender.com/appointments/count'),
         ]);
 
         setCounts({
