@@ -54,10 +54,10 @@ const AddDoctor = () => {
         setNewDoctor({ ...newDoctor, imageUrl: base64 });
       } catch (error) {
         console.error('Error converting to base64:', error);
-        setMessage('Error converting image to base64.');
+        setDoctorMessage('Error converting image to base64.');
       }
     } else {
-      setMessage('Invalid image format.');
+      setDoctorMessage('Invalid image format.');
     }
   };
 
